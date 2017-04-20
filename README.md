@@ -64,12 +64,19 @@ class AppKernel extends Kernel
 Usage
 -----
 
-Configuration options
+Update your database to include the required tables.
 
-// ...
-williams_logic_broker:
-    ftp:
-        host: ftp_host
-        username: ftp_username
-        password: ftp_password
-    handler: name of class to use as order handler
+Create a handler class that implements LogicBrokerHandlerInterface and create
+that class as a service.
+
+Create a service named app.logicbroker with the following parameters:
+
+```yaml        
+    app.logicbroker:
+        class: Williams\LogicBrokerBundle\Service\LogicBrokerService
+        arguments: [ "%logicbroker_ftp_host%", "%logicbroker_ftp_user%", "%logicbroker_ftp_pass%", "@app.logicbroker_handler", "@doctrine.orm.entity_manager" ]
+```
+
+Use the console to run logicbroker:process periodically to perform EDI
+
+You can view order status and manage customers at 

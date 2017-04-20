@@ -1,4 +1,0 @@
-services:
-    williams_logicbroker.service:
-        class: Williams\LogicBrokerBundle\Service\LogicBrokerService
-        arguments: [ "%williams_logicbroker_ftp.host%", "%williams_logicbroker_ftp.username%", "%williams_logicbroker_ftp.password%", "%williams_logicbroker_handler%", "@doctrine.orm.entity_manager" ] 

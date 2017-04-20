@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Carton
  *
- * @ORM\Table(name="williams_logic_broker_order_status")
+ * @ORM\Table(name="williams_logicbroker_order_status")
  * @ORM\Entity(repositoryClass="Williams\LogicBrokerBundle\Repository\OrderStatusRepository")
  */
 class OrderStatus {
@@ -24,7 +24,7 @@ class OrderStatus {
     /**
      * @var string
      *
-     * @ORM\Column(name="logic_broker_key", type="string", length=255)
+     * @ORM\Column(name="logicbroker_key", type="string", length=255)
      */
     private $logicBrokerKey;
 

@@ -1,0 +1,9 @@
+{% extends '@WilliamsLogicBroker\layout.html.twig' %}
+
+{% block williams_logicbroker_content %}
+    
+    {{ form(form) }}
+    
+    <p><a href="{{ path('logicbroker_customer_list') }}">Cancel</a></p>
+    
+{% endblock %}

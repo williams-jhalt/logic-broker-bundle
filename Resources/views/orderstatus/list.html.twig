@@ -1,0 +1,34 @@
+{% extends '@WilliamsLogicBroker\layout.html.twig' %}
+
+{% block williams_logicbroker_content %}
+    
+    <table>
+        <thead>
+            <tr>
+                <th>LogicBroker Key</th>
+                <th>Sender Company Id</th>
+                <th>Document Date</th>
+                <th>Partner PO</th>
+                <th>Order Number</th>
+                <th>Weborder Number</th>
+                <th>Customer Number</th>
+                <th>Status Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td><a href="{{ path('logicbroker_orderstatus_view', {id: item.id}) }}">{{ item.logicBrokerKey }}</a></td>
+                    <td>{{ item.senderCompanyId }}</td>
+                    <td>{{ item.documentDate|date('Y-m-d') }}</td>
+                    <td>{{ item.partnerPO }}</td>
+                    <td>{{ item.orderNumber }}</td>
+                    <td>{{ item.weborderNumber }}</td>
+                    <td>{{ item.customerNumber }}</td>
+                    <td>{{ item.statusCode }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

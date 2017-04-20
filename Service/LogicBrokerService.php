@@ -43,17 +43,11 @@ class LogicBrokerService {
      */
     private $em;    
 
-    public function __construct($ftpHost, $ftpUser, $ftpPass, $handlerClass, EntityManager $em) {
+    public function __construct($ftpHost, $ftpUser, $ftpPass, $handler, EntityManager $em) {
         $this->ftpHost = $ftpHost;
         $this->ftpUser = $ftpUser;
         $this->ftpPass = $ftpPass;
-
-        if (!class_exists($handlerClass)) {
-            throw \Exception("LogicBroker Handler Class $handlerClass Not Found");
-        } else {
-            $this->handler = new $handlerClass();
-        }
-        
+        $this->handler = $handler;
         $this->em = $em;
     }
 
@@ -77,7 +71,7 @@ class LogicBrokerService {
             foreach ($orders as $order) {
                 
                 // translate the sender id to a customer number
-                $repo = $this->em->getRepository('LogicBrokerBundle::Customer');
+                $repo = $this->em->getRepository('Williams:LogicBrokerBundle:Customer');
                 $customerNumber = $repo->findOneBySenderCompanyId($order->getSenderCompanyId())->getCustomerNumber();
                 
                 // submit order using handler
@@ -110,7 +104,7 @@ class LogicBrokerService {
      */
     public function acknowledgeReceipt() {
         
-        $repo = $this->em->getRepository('LogicBrokerBundle::OrderStatus');
+        $repo = $this->em->getRepository('Williams:LogicBrokerBundle:OrderStatus');
         $orderStatus = $repo->findByStatusCode(150);
         foreach ($orderStatus as $status) {
             $weborderNumber = $status->getWeborderNumber();
@@ -139,7 +133,7 @@ class LogicBrokerService {
         
         $adapter->writeHeader($file);
         
-        $repo = $this->em->getRepository('LogicBrokerBundle::OrderStatus');
+        $repo = $this->em->getRepository('Williams:LogicBrokerBundle:OrderStatus');
         $orderStatus = $repo->findByStatusCode(500);
         foreach ($orderStatus as $status) {
             $shipments = $this->handler->getShipments($status->getOrderNumber());
@@ -180,7 +174,7 @@ class LogicBrokerService {
         
         $adapter->writeHeader($file);
         
-        $repo = $this->em->getRepository('LogicBrokerBundle::OrderStatus');
+        $repo = $this->em->getRepository('Williams:LogicBrokerBundle:OrderStatus');
         $orderStatus = $repo->findByStatusCode(600);
         foreach ($orderStatus as $status) {
             $invoices = $this->handler->getInvoices($status->getOrderNumber());

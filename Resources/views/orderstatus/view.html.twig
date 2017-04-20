@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <table>
+        <tbody>
+            <tr>
+                <th>LogicBroker Key</th>
+                <td>{{ item.logicBrokerKey }}</td>
+            </tr>
+            <tr>
+                <th>Sender Company Id</th>
+                <td>{{ item.senderCompanyId }}</td>
+            </tr>
+            <tr>
+                <th>Document Date</th>
+                <td>{{ item.documentDate|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th>Partner PO</th>
+                <td>{{ item.partnerPO }}</td>
+            </tr>
+            <tr>
+                <th>Order Number</th>
+                <td>{{ item.orderNumber }}</td>
+            </tr>
+            <tr>
+                <th>Weborder Number</th>
+                <td>{{ item.weborderNumber }}</td>
+            </tr>
+            <tr>
+                <th>Customer Number</th>
+                <td>{{ item.customerNumber }}</td>
+            </tr>
+            <tr>
+                <th>Status Code</th>
+                <td>{{ item.statusCode }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><a href="{{ path('logicbroker_orderstatus_list') }}">Back</a></p>
+
+{% endblock %}

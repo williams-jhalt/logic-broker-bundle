@@ -1,0 +1,24 @@
+{% extends '@WilliamsLogicBroker\layout.html.twig' %}
+
+{% block williams_logicbroker_content %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Sender Company Id</th>
+                <th>Customer Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in items %}
+                <tr>
+                    <td><a href="{{ path('logicbroker_customer_view', {id: item.id}) }}">{{ item.senderCompanyId }}</a></td>
+                    <td>{{ item.customerNumber }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{{ path('logicbroker_customer_new') }}">Add Customer</a></p>            
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends '@WilliamsLogicBroker\layout.html.twig' %}
+
+{% block williams_logicbroker_content %}
+    
+    <table>
+        <tbody>
+            <tr>
+                <th>Sender Company Id</th>
+                <td>{{ item.senderCompanyId }}</td>
+            </tr>
+            <tr>
+                <th>Customer Number</th>
+                <td>{{ item.customerNumber }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p><a href="{{ path('logicbroker_customer_edit', {id: item.id}) }}">Edit</a></p>
+    
+    <p><a href="{{ path('logicbroker_customer_list') }}">Back</a></p>
+    
+{% endblock %}

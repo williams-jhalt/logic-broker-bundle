@@ -5,12 +5,12 @@ namespace Williams\LogicBrokerBundle\Command;
 class ProcessTransactionsCommand extends ContainerAwareCommand {
 
     protected function configure() {
-        $this->setName('logicbroker:process')
+        $this->setName('williams:logicbroker:process')
                 ->setDescription('Process Transactions through LogicBroker');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
-        $service = $this->getContainer()->get('williams_logicbroker.service');
+        $service = $this->getContainer()->get('app.logicbroker');
         $output->write("Beginning EDI process...\n");
         $output->write("Retrieving Orders...");
         $service->retrieveOrders();

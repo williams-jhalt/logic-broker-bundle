@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Carton
  *
- * @ORM\Table(name="williams_logic_broker_customer")
+ * @ORM\Table(name="williams_logicbroker_customer")
  * @ORM\Entity(repositoryClass="Williams\LogicBrokerBundle\Repository\CustomerRepository")
  */
 class Customer {
