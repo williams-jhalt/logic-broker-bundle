@@ -7,6 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Williams\LogicBrokerBundle\Entity\Customer;
+use Williams\LogicBrokerBundle\Form\CustomerType;
 
 /**
  * @Route("/logicbroker/customer")
@@ -25,7 +26,7 @@ class CustomerController extends Controller {
      */
     public function listAction() {
         
-        $customers = $this->getDoctrine()->getRepository('LogicBrokerBundle:Customer')->findAll();
+        $customers = $this->getDoctrine()->getRepository('Williams\LogicBrokerBundle\Entity\Customer')->findAll();
 
         return $this->render('@WilliamsLogicBroker/customer/list.html.twig', [
                     'items' => $customers
@@ -60,7 +61,7 @@ class CustomerController extends Controller {
      */
     public function viewAction($id, Request $request) {
 
-        $product = $this->getDoctrine()->getRepository('LogicBrokerBundle:Customer')->find($id);
+        $product = $this->getDoctrine()->getRepository('Williams\LogicBrokerBundle\Entity\Customer')->find($id);
 
         return $this->render('@WilliamsLogicBroker/customer/view.html.twig', [
                     'item' => $product
@@ -72,7 +73,7 @@ class CustomerController extends Controller {
      */
     public function editAction($id, Request $request) {
 
-        $customer = $this->getDoctrine()->getRepository('LogicBrokerBundle:Customer')->find($id);
+        $customer = $this->getDoctrine()->getRepository('Williams\LogicBrokerBundle\Entity\Customer')->find($id);
 
         $form = $this->createForm(CustomerType::class, $customer);
 
@@ -96,7 +97,7 @@ class CustomerController extends Controller {
      */
     public function deleteAction($id, Request $request) {
 
-        $customer = $this->getDoctrine()->getRepository('LogicBrokerBundle:Customer')->find($id);
+        $customer = $this->getDoctrine()->getRepository('Williams\LogicBrokerBundle\Entity\Customer')->find($id);
 
         $form = $this->createFormBuilder()
                 ->add('confirm', SubmitType::class, ['label' => 'Confirm Delete'])

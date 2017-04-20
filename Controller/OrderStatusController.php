@@ -23,7 +23,7 @@ class OrderStatusController extends Controller {
      */
     public function listAction(Request $request) {
 
-        $orderStatuses = $this->getDoctrine()->getRepository('LogicBrokerBundle:OrderStatus')->findAll();
+        $orderStatuses = $this->getDoctrine()->getRepository('Williams\LogicBrokerBundle\Entity\OrderStatus')->findAll();
 
         return $this->render('@WilliamsLogicBroker/orderstatus/list.html.twig', [
             'items' => $orderStatuses
@@ -35,7 +35,7 @@ class OrderStatusController extends Controller {
      */
     public function viewAction($id, Request $request) {
 
-        $status = $this->getDoctrine()->getRepository('LogicBrokerBundle:OrderStatus')->find($id);
+        $status = $this->getDoctrine()->getRepository('Williams\LogicBrokerBundle\Entity\OrderStatus')->find($id);
 
         return $this->render('@WilliamsLogicBroker/orderstatus/view.html.twig', [
                     'item' => $status
