@@ -99,7 +99,7 @@ class CsvShipmentAdapter {
                 $row = [
                     $shipment->getIdentifier()->getLinkKey(),
                     $shipment->getReceiverCompanyId(),
-                    $shipment->getDocumentDate()->format('c'),
+                    empty($shipment->getDocumentDate()) ? null : $shipment->getDocumentDate()->format('c'),
                     $shipment->getShipmentNumber(),
                     $shipment->getPartnerPO(),
                     empty($shipment->getOrderDate()) ? null : $shipment->getOrderDate()->format('c'),
@@ -108,7 +108,7 @@ class CsvShipmentAdapter {
                     $shipment->getProNumber(),
                     $shipment->getVendorNumber(),
                     $shipment->getNote(),
-                    $shipment->getExpectedDeliveryDate()->format('c'),
+                    empty($shipment->getExpectedDeliveryDate()) ? null : $shipment->getExpectedDeliveryDate()->format('c'),
                     empty($payments) ? null : $payments[0]->getMethod(),
                     $shipment->getShipToAddress()->getCompanyName(),
                     $shipment->getShipToAddress()->getFirstName(),

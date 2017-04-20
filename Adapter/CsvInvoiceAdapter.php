@@ -121,9 +121,9 @@ class CsvInvoiceAdapter {
                 $row = [
                     $invoice->getIdentifier()->getLinkKey(),
                     $invoice->getReceiverCompanyId(),
-                    $invoice->getInvoiceDate()->format('c'),
+                    empty($invoice->getInvoiceDate()) ? null : $invoice->getInvoiceDate()->format('c'),
                     $invoice->getInvoiceNumber(),
-                    $invoice->getDocumentDate()->format('c'),
+                    empty($invoice->getDocumentDate()) ? null : $invoice->getDocumentDate()->format('c'),
                     empty($invoice->getOrderDate()) ? null : $invoice->getOrderDate()->format('c'),
                     $invoice->getPartnerPO(),
                     $invoice->getCurrency(),
