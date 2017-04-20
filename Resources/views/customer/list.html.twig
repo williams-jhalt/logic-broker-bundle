@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for customer in items %}
+            {% for item in items %}
                 <tr>
                     <td><a href="{{ path('logicbroker_customer_view', {id: item.id}) }}">{{ item.senderCompanyId }}</a></td>
                     <td>{{ item.customerNumber }}</td>
