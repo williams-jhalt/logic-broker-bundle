@@ -5,7 +5,7 @@ namespace Williams\LogicBrokerBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Williams\LogicBrokerBundle\Entity\Customer;
 
 /**

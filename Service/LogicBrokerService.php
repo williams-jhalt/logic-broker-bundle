@@ -91,7 +91,7 @@ class LogicBrokerService {
             }
             $this->em->flush();
             
-            #ftp_delete($ftp, "/CSV/Inbound/Order/$file");
+            ftp_delete($ftp, "/CSV/Inbound/Order/$file");
             
             unlink($tempfile);
         }
