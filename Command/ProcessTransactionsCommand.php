@@ -2,6 +2,10 @@
 
 namespace Williams\LogicBrokerBundle\Command;
 
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
 class ProcessTransactionsCommand extends ContainerAwareCommand {
 
     protected function configure() {
