@@ -1,0 +1,27 @@
+{
+    "name": "williams/logic-broker-bundle",
+    "license": "proprietary",
+    "type": "symfony-bundle",
+    "autoload": {
+        "psr-4": {
+            "Williams\\ErpBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "Tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=5.5.9",
+        "doctrine/orm": "^2.5",
+        "symfony/symfony": "3.2.*",
+        "sensio/framework-extra-bundle": "^3.0.2",
+        "friendsofsymfony/rest-bundle": "^2.1",
+        "jms/serializer-bundle": "^1.1",
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}
